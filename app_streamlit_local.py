@@ -117,18 +117,6 @@ if submitted:
             st.error(f"### ⚠️ Credit Score: **{result}**")
             st.caption("Risiko tinggi: Perbaikan finansial disarankan")
 
-        # Confidence bars
-        try:
-            clf = model.named_steps.get("classifier") or model.named_steps.get("model")
-            if clf and hasattr(clf, "predict_proba"):
-                proba = clf.predict_proba(input_data)[0]
-                st.write("**Tingkat Keyakinan Prediksi**")
-                for label, prob in zip(["Poor", "Standard", "Good"], proba):
-                    st.write(f"{label}")
-                    st.progress(float(prob), text=f"{prob:.1%}")
-        except Exception:
-            pass
-
         # Ringkasan input
         with st.expander("📋 Ringkasan Input", expanded=False):
             st.dataframe(pd.DataFrame({
