@@ -10,7 +10,7 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    return joblib.load("artifacts/RF-5_pipeline.pkl")
+    return joblib.load("RF-5_pipeline.pkl")
 
 # Header
 st.title("💳 Credit Score Predictor")
