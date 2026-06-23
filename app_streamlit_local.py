@@ -58,7 +58,7 @@ with st.form("credit_form"):
         type_of_loan          = st.selectbox("Jenis Pinjaman", ["Pinjaman Pribadi","Pinjaman Mahasiswa","KPR",
                                                                 "Pinjaman Gaji","Pinjaman Mobil","Pinjaman Pembangun Kredit",
                                                                 "Konsolidasi Utang","Pinjaman Ekuitas Rumah","Tidak Ditentukan"])
-        credit_mix            = st.selectbox("Komposisi Kredit", ["Buruk","Standar","Baik"])
+        credit_mix            = st.selectbox("Komposisi Kredit", ["Bad","Standard","Good"])
 
     st.subheader("📅 Perilaku Pembayaran")
     c1, c2, c3 = st.columns(3)
@@ -67,15 +67,15 @@ with st.form("credit_form"):
     with c2:
         num_of_delayed_payment = st.number_input("Jumlah Pembayaran Terlambat", min_value=0, value=5)
     with c3:
-        payment_of_min_amount  = st.selectbox("Hanya Bayar Minimum?", ["Tidak","Ya"])
+        payment_of_min_amount  = st.selectbox("Hanya Bayar Minimum?", ["No","Yes"])
 
     payment_behaviour = st.selectbox("Pola Belanja & Pembayaran", [
-        "Pengeluaran Rendah - Nilai Kecil",
-        "Pengeluaran Rendah - Nilai Sedang",
-        "Pengeluaran Rendah - Nilai Besar",
-        "Pengeluaran Tinggi - Nilai Kecil",
-        "Pengeluaran Tinggi - Nilai Sedang",
-        "Pengeluaran Tinggi - Nilai Besar"
+        "Low_spent_Small_value_payments",
+        "Low_spent_Medium_value_payments",
+        "Low_spent_Large_value_payments",
+        "High_spent_Small_value_payments",
+        "High_spent_Medium_value_payments",
+        "High_spent_Large_value_payments"
     ])
 
     st.divider()
