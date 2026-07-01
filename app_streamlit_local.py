@@ -25,12 +25,12 @@ with st.form("credit_form"):
     with c1:
         age = st.number_input("Usia (tahun)", min_value=18, max_value=100, value=30)
     with c2:
-        month = st.selectbox("Bulan", ["Januari","Februari","Maret","April","Mei","Juni",
-                                       "Juli","Agustus","September","Oktober","November","Desember"])
+        month = st.selectbox("Month", ["January","February","March","April","May","June",
+                                       "July","August","September","October","November","December"])
     with c3:
-        occupation = st.selectbox("Pekerjaan", ["Akuntan","Arsitek","Developer","Dokter","Insinyur",
-                                                "Pengusaha","Jurnalis","Pengacara","Manajer","Mekanik",
-                                                "Manajer Media","Musisi","Ilmuwan","Guru","Penulis"])
+        occupation = st.selectbox("Occupation", ["Accountant","Architect","Developer","Doctor",
+                                                 "Engineer","Entrepreneur","Journalist","Lawyer","Manager",
+                                                 "Mechanic","Media_Manager","Musician","Scientist","Teacher","Writer"])
 
     st.subheader("💰 Pendapatan & Rekening")
     c1, c2 = st.columns(2)
@@ -55,10 +55,10 @@ with st.form("credit_form"):
     with c2:
         changed_credit_limit  = st.number_input("Perubahan Limit Kartu Kredit (%)", min_value=0.0, value=10.0, step=0.1)
         num_credit_inquiries  = st.number_input("Jumlah Permintaan Kredit", min_value=0, value=5)
-        type_of_loan          = st.selectbox("Jenis Pinjaman", ["Pinjaman Pribadi","Pinjaman Mahasiswa","KPR",
-                                                                "Pinjaman Gaji","Pinjaman Mobil","Pinjaman Pembangun Kredit",
-                                                                "Konsolidasi Utang","Pinjaman Ekuitas Rumah","Tidak Ditentukan"])
-        credit_mix            = st.selectbox("Komposisi Kredit", ["Buruk","Standar","Baik"])
+        type_of_loan = st.selectbox("Type of Loan", ["Personal Loan","Student Loan","Mortgage Loan",
+                                                     "Payday Loan","Auto Loan","Credit-Builder Loan",
+                                                     "Debt Consolidation Loan","Home Equity Loan","Not Specified"])
+        credit_mix = st.selectbox("Credit Mix",["Bad", "Standard", "Good"])
 
     st.subheader("📅 Perilaku Pembayaran")
     c1, c2, c3 = st.columns(3)
@@ -67,16 +67,10 @@ with st.form("credit_form"):
     with c2:
         num_of_delayed_payment = st.number_input("Jumlah Pembayaran Terlambat", min_value=0, value=5)
     with c3:
-        payment_of_min_amount  = st.selectbox("Hanya Bayar Minimum?", ["Tidak","Ya"])
+        payment_of_min_amount = st.selectbox("Payment of Minimum Amount",["No", "Yes"])
 
-    payment_behaviour = st.selectbox("Pola Belanja & Pembayaran", [
-        "Pengeluaran Rendah - Nilai Kecil",
-        "Pengeluaran Rendah - Nilai Sedang",
-        "Pengeluaran Rendah - Nilai Besar",
-        "Pengeluaran Tinggi - Nilai Kecil",
-        "Pengeluaran Tinggi - Nilai Sedang",
-        "Pengeluaran Tinggi - Nilai Besar"
-    ])
+    payment_behaviour = st.selectbox("Payment Behaviour",["Low_spent_Small_value_payments","Low_spent_Medium_value_payments","Low_spent_Large_value_payments",
+                                                          "High_spent_Small_value_payments","High_spent_Medium_value_payments","High_spent_Large_value_payments"])
 
     st.divider()
     submitted = st.form_submit_button("🔍 Prediksi", type="primary", use_container_width=True)
