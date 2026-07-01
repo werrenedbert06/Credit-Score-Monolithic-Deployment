@@ -96,6 +96,7 @@ if submitted:
 
     try:
         pred   = model.predict(input_data)[0]
+        proba = model.predict_proba(input_data)[0]
         labels = {0: "Poor", 1: "Standard", 2: "Good"}
         result = labels[pred]
 
